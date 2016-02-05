@@ -45,6 +45,7 @@
     "react-transform-hmr": "^1.0.0",
     "style-loader": "^0.12.3",
     "todomvc-app-css": "^2.0.1",
+    "url-loader": "^0.5.7",
     "webpack": "^1.9.11",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.2.0"
