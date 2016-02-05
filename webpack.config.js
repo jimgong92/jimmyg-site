@@ -24,8 +24,13 @@ module.exports = {
       exclude: /node_modules/,
       include: __dirname
     }, {
-      test: /\.css?$/,
-      loaders: [ 'style', 'raw' ],
+      test: /\.less?$/,
+      loaders: [ 'style', 'css', 'less' ],
+      include: __dirname
+    },
+    {
+      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      loaders: [ 'url' ],
       include: __dirname
     }]
   }

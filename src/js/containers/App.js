@@ -1,12 +1,19 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import Footer from '../components/Footer';
+import Menu from '../components/Menu';
+import NameTag from '../components/NameTag';
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <p>P.O.C.</p>
+        <main className="main">
+          <NameTag />
+          <Menu />
+        </main>
+        <Footer />
       </div>
     );
   }
