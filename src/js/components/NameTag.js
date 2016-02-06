@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
-class NameTag extends React.Component {
+class NameTag extends Component {
   render() {
     return (
-      <div className="name-tag">
-        Jimmy Gong
+      <div className="name-tag center">
+        { this.props.name }
       </div>
     );
   }
 }
+
+NameTag.proptypes = {
+  name: PropTypes.string.isRequired
+};
+
+NameTag.defaultProps = {
+  name: 'Jimmy Gong'
+};
 
 export default NameTag;
