@@ -1,9 +1,15 @@
 import React, { Component, PropTypes } from 'react';
+import MenuItem from './MenuItem';
 
 class Menu extends Component {
   render() {
+    const itemList = this.props.items.map(item => {
+      return <MenuItem itemName={ item } />;
+    });
     return (
-      <div className="menu" />
+      <ul className="menu">
+        { itemList }
+      </ul>
     );
   }
 }

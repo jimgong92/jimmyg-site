@@ -17,19 +17,18 @@ header {
 
 footer {
   background: #000000;
-  border-color: #FF0000;
-  border-width: 1px;
-  border-style: solid;
   bottom: 0;
-  flex: 1 100%;
-  max-height: 10vh;
-  min-height: 5vh;
-  order: 4;
-  position:fixed;
+  font-size: 12px;
+  max-height: 2em;
+  min-height: 0;
+  position: fixed;
   width: 60vw;
+  display: flex;
+  align-items: center;
 }
 
 .app {
+  color: white;
   display: flex;
   flex-direction: column;
   font-family: "Pixelated";
@@ -49,9 +48,36 @@ footer {
   border-color: #0000FF;
   border-style: solid;
   border-width: 1px;
-  color: white;
-  font-size: 80px;
+  font-size: 100px;
   height: 20vh;
+}
+
+.menu {
+  border-color: #00FF00;
+  border-style: solid;
+  border-width: 1px;
+  list-style-type: none;
+  margin: 0;  
+  padding: 0;
+}
+
+.menu-item {
+  border-color: #FF00FF;
+  border-style: solid;
+  border-width: 1px;
+  font-size: 60px;
+  height: 1em;
+  padding-left: 15vw;
+}
+
+.menu-item-text {
+  align-items: center;
+  border-color: #FFFFFF;
+  border-style: solid;
+  border-width: 1px;
+  display: table-cell;
+  vertical-align: middle;
+  height: 1em;
 }
 
 .center {
@@ -63,7 +89,6 @@ footer {
 .hidden {
   display: none;
 }
-
 
 @font-face {
   font-family: "Pixelated";
