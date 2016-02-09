@@ -17,8 +17,4 @@ NameTag.proptypes = {
   name: PropTypes.string.isRequired
 };
 
-NameTag.defaultProps = {
-  name: 'Jimmy Gong'
-};
-
 export default NameTag;

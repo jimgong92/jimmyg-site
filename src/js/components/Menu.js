@@ -25,34 +25,4 @@ Menu.proptypes = {
   items: PropTypes.arrayOf(PropTypes.shape).isRequired
 };
 
-Menu.defaultProps = {
-  items: [
-  // { 
-  //   itemName: 'About',
-  //   onClick: () => {
-  //     console.log('About');
-  //   }
-  // },
-  {
-    itemName: 'Blog',
-    onClick: () => {
-      // Refine when blog becomes subdomain
-      window.location.href = 'http://jimandtonic.azurewebsites.net';
-    }
-  },
-  {
-    itemName: 'Connect',
-    onClick: () => {
-      console.log('Connect');
-    }
-  },
-  // {
-  //   itemName: 'Demos',
-  //   onClick: () => {
-  //     console.log('Demos');
-  //   }
-  // }
-  ]
-};
-
 export default Menu;

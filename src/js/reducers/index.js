@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import placeholder from './placeholder'
+import menuSprite from './menuSprite'
 
 const rootReducer = combineReducers({
-  placeholder
+  menuSprite
 });
 
 export default rootReducer;

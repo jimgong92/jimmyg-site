@@ -9,6 +9,7 @@ class MenuItem extends Component {
     const activity = this.props.active ? '' : ' invisible';
     return (
       <li className="menu-item">
+        <div className="menu-item-indent" />
         <div className={ 'jimmy-sprite' + activity } />
         <span
           className="menu-item-text"

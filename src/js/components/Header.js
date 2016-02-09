@@ -1,14 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import NameTag from './NameTag';
 
 class Header extends Component {
   render() {
     return (
       <header className="header">
-        <NameTag name="Jimmy Gong" />
+        <NameTag name={ this.props.name } />
       </header>
     );
   }
 }
+
+Header.propTypes = {
+  name: PropTypes.string.isRequired
+};
 
 export default Header;
