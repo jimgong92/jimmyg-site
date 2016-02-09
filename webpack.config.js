@@ -32,6 +32,11 @@ module.exports = {
       test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loaders: [ 'url' ],
       include: __dirname
+    },
+    {
+      test: /\.png?$/,
+      loaders: [ 'file' ],
+      include: __dirname
     }]
   }
 };
