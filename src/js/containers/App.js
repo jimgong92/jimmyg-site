@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
+import defaultProps from './default';
 
 class App extends Component {
   render() {
@@ -25,36 +26,7 @@ App.propTypes = {
   selectionItems: PropTypes.arrayOf(PropTypes.shape).isRequired
 }
 
-App.defaultProps = {
-  name: 'Jimmy Gong',
-  selectionItems: [
-  { 
-    itemName: 'About',
-    onClick: () => {
-      console.log('About');
-    }
-  },
-  {
-    itemName: 'Blog',
-    onClick: () => {
-      // Refine when blog becomes subdomain
-      window.location.href = 'http://jimandtonic.azurewebsites.net';
-    }
-  },
-  {
-    itemName: 'Connect',
-    onClick: () => {
-      console.log('Connect');
-    }
-  },
-  {
-    itemName: 'Demos',
-    onClick: () => {
-      console.log('Demos');
-    }
-  }
-  ]
-}
+App.defaultProps = defaultProps;
 
 function mapStateToProps(state) {
   return {};
