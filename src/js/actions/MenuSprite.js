@@ -6,6 +6,9 @@ const actions = {
   },
   moveDown: function() {
     return { type: types.MOVE_DOWN };
+  },
+  makeSelection: function() {
+    return { type: types.MAKE_SELECTION };
   }
 }
 

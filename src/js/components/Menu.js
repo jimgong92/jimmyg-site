@@ -3,6 +3,7 @@ import MenuItem from './MenuItem';
 
 const UP_KEY_CODES = new Set([ 38, 87 ]);
 const DOWN_KEY_CODES = new Set([ 40,83 ]);
+const ENTER_KEY_CODE = 13;
 
 class Menu extends Component {
   constructor(props){
@@ -13,12 +14,16 @@ class Menu extends Component {
     window.addEventListener('keydown', this.handleKeyPress);
   }
   handleKeyPress(e) {
-    const { moveUp, moveDown } = this.props.actions;
+    const { moveUp, moveDown, makeSelection } = this.props.actions;
     if (DOWN_KEY_CODES.has(e.keyCode)) {
       moveDown();
     }
     if (UP_KEY_CODES.has(e.keyCode)) {
       moveUp();
+    }
+    if (ENTER_KEY_CODE === e.keyCode) {
+      // Invoke current selectedAction
+      makeSelection();
     }
   }
   render() {
