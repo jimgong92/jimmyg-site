@@ -1,16 +1,33 @@
 import React, { Component, PropTypes } from 'react';
 import MenuItem from './MenuItem';
 
+const UP_KEY_CODES = new Set([ 38, 87 ]);
+const DOWN_KEY_CODES = new Set([ 40,83 ]);
+
 class Menu extends Component {
-  constructor(props) {
+  constructor(props){
     super(props);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeyPress);
+  }
+  handleKeyPress(e) {
+    const { moveUp, moveDown } = this.props.actions;
+    if (DOWN_KEY_CODES.has(e.keyCode)) {
+      moveDown();
+    }
+    if (UP_KEY_CODES.has(e.keyCode)) {
+      moveUp();
+    }
   }
   render() {
-    const itemList = this.props.items.map((item, i) => {
+    const { items, menuSprite } = this.props;
+    const itemList = items.map((item, i) => {
       return <MenuItem 
                 key={ i }
                 menuItem={ item } 
-                active = { i === 0 }
+                active = { i === menuSprite.position }
               />;
     });
     return (

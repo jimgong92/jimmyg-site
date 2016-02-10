@@ -5,15 +5,25 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
 import defaultProps from './default';
+import MenuSpriteActions from '../actions/MenuSprite';
 
 class App extends Component {
   render() {
-    const { name, selectionItems } = this.props;
+    const { 
+      menuSprite,
+      actions,
+      name,
+      selectionItems
+    } = this.props;
     return (
       <div>
         <main className="main">
           <Header name={ name } />
-          <Menu items={ selectionItems }/>
+          <Menu 
+            items={ selectionItems } 
+            menuSprite={ menuSprite }
+            actions={ actions }
+          />
         </main>
         <Footer />
       </div>
@@ -22,19 +32,22 @@ class App extends Component {
 }
 
 App.propTypes = {
+  actions: PropTypes.object.isRequired,
+  menuSprite: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   selectionItems: PropTypes.arrayOf(PropTypes.shape).isRequired
-}
+};
 
 App.defaultProps = defaultProps;
 
 function mapStateToProps(state) {
-  return {};
+  return {
+    menuSprite: state.menuSprite
+  };
 }
 function mapDispatchToProps(dispatch) {
-  const ACTIONS_PLACEHOLDER = {};
   return {
-    actions: bindActionCreators(ACTIONS_PLACEHOLDER, dispatch)
+    actions: bindActionCreators(MenuSpriteActions, dispatch)
   };
 }
 
