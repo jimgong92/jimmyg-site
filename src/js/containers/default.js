@@ -6,28 +6,26 @@
 const defaultProps = {
   name: 'Jimmy Gong',
   selectionItems: [
-    // { 
-    //   itemName: 'About',
-    //   onClick: () => {
-    //     console.log('About');
-    //   }
-    // },
+    { 
+      itemName: 'About',
+      handleSelect: () => {}
+    },
     {
       itemName: 'Blog',
-      onClick: () => {
+      handleSelect: () => {
         // Refine when blog becomes subdomain
         window.location.href = 'http://jimandtonic.azurewebsites.net';
       }
     },
     // {
     //   itemName: 'Connect',
-    //   onClick: () => {
+    //   handleSelect: () => {
     //     console.log('Connect');
     //   }
     // },
     // {
     //   itemName: 'Demos',
-    //   onClick: () => {
+    //   handleSelect: () => {
     //     console.log('Demos');
     //   }
     // }

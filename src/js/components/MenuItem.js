@@ -1,19 +1,24 @@
 import React, { Component, PropTypes } from 'react';
+import cx from 'classnames';
 
 class MenuItem extends Component {
   constructor(props) {
     super(props);
   }
   render() {
-    const { itemName, onClick } = this.props.menuItem;
-    const activity = this.props.active ? '' : ' invisible';
+    const { itemName, handleSelect } = this.props.menuItem;
+    const className = cx({
+      'jimmy-sprite': true,
+      'invisible': !this.props.active
+    });
+
     return (
       <li className="menu-item">
         <div className="menu-item-indent" />
-        <div className={ 'jimmy-sprite' + activity } />
+        <div className={ className } />
         <span
           className="menu-item-text"
-          onClick={ onClick }
+          onClick={ handleSelect }
         >
           { itemName }
         </span>
@@ -25,7 +30,7 @@ class MenuItem extends Component {
 MenuItem.proptypes = {
   menuItem: PropTypes.shape({
     itemName: PropTypes.string.isRequired,
-    onClick: PropTypes.func.isRequired
+    handleSelect: PropTypes.func.isRequired
   }).isRequired,
   active: PropTypes.bool.isRequired
 };

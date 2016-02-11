@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
+import AboutModal from '../components/AboutModal';
 import defaultProps from './default';
 import MenuSpriteActions from '../actions/MenuSprite';
 
@@ -13,8 +14,10 @@ class App extends Component {
       menuSprite,
       actions,
       name,
-      selectionItems
+      selectionItems,
+      openModal
     } = this.props;
+
     return (
       <div>
         <main className="main">
@@ -23,6 +26,10 @@ class App extends Component {
             items={ selectionItems } 
             menuSprite={ menuSprite }
             actions={ actions }
+          />
+          <AboutModal 
+            isOpen={menuSprite.openModal === 'About'}
+            closeModal={ actions.closeModal }
           />
         </main>
         <Footer />

@@ -11,7 +11,10 @@ class Menu extends Component {
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
   componentDidMount() {
-    window.addEventListener('keydown', this.handleKeyPress);
+    document.body.addEventListener('keydown', this.handleKeyPress);
+  }
+  componentWillUnmount() {
+    document.body.removeEventListener('keydown');
   }
   handleKeyPress(e) {
     const { moveUp, moveDown, makeSelection } = this.props.actions;
