@@ -38,6 +38,8 @@ export default function menuSprite(state = initialState, action) {
         };
       }
     case CLOSE_MODAL:
+      document.body.onclick = null;
+
       return {
         openModal: null,
         position: state.position,

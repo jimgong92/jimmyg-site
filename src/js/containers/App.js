@@ -9,13 +9,24 @@ import defaultProps from './default';
 import MenuSpriteActions from '../actions/MenuSprite';
 
 class App extends Component {
+  componentDidUpdate() {
+    const { actions, menuSprite } = this.props;
+
+    if (menuSprite.openModal !== null) {
+      document.body.onclick = function(e) {
+        const elementClasses = new Set(e.target.className.split(' '));
+        if (!elementClasses.has('modal')) {
+          actions.closeModal();
+        }
+      };
+    }
+  }
   render() {
     const { 
       menuSprite,
       actions,
       name,
-      selectionItems,
-      openModal
+      selectionItems
     } = this.props;
 
     return (

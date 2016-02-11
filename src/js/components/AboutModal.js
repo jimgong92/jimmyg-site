@@ -8,6 +8,7 @@ class AboutModal extends Component {
   render() {
     const { closeModal, isOpen } = this.props;
     const className = cx({
+      'blahblah': true,
       'modal': true,
       'modal-close': !isOpen
     });
