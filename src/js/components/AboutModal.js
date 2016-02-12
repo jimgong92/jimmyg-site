@@ -24,9 +24,6 @@ class AboutModal extends Component {
           my tool of choice because I love its flexibility and
           work heavily with the web, but I play with multiple
           languages.</span>
-          </p>
-          
-          <p>
           <span>In my free time I like to dive into basketball analytics,
           learn about space, and make simple 8-bit games.</span>
           </p>

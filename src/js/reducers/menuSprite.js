@@ -30,12 +30,32 @@ export default function menuSprite(state = initialState, action) {
       };
     case MAKE_SELECTION:
       if (state.openModal === null) {
-        state.selectedAction();
-        return {
-          openModal: selectionItems[state.position].itemName,
-          position: state.position,
-          selectedAction: state.selectedAction
-        };
+        // Handle Key Press
+        if (!action.itemName) {
+          state.selectedAction();
+          return {
+            openModal: selectionItems[state.position].itemName,
+            position: state.position,
+            selectedAction: state.selectedAction
+          };
+        }
+        // Handle Click
+        for (let i = 0; i < selectionItems.length; i++) {
+          let item = selectionItems[i];
+          if (item.itemName === action.itemName) {
+            state.openModal = item.itemName;
+            state.position = i;
+            state.selectedAction = selectionItems[state.position].handleSelect;
+            state.selectedAction();
+            return {
+              openModal: state.openModal,
+              position: state.position,
+              selectedAction: state.selectedAction
+            };
+          }
+        }
+
+        return state;
       }
     case CLOSE_MODAL:
       document.body.onclick = null;

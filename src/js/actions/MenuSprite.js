@@ -7,8 +7,8 @@ const actions = {
   moveDown: () => {
     return { type: types.MOVE_DOWN };
   },
-  makeSelection: () => {
-    return { type: types.MAKE_SELECTION };
+  makeSelection: (itemName) => {
+    return { type: types.MAKE_SELECTION, itemName: itemName };
   },
   closeModal: () => {
     return { type: types.CLOSE_MODAL };

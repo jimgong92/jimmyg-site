@@ -4,6 +4,11 @@ import cx from 'classnames';
 class MenuItem extends Component {
   constructor(props) {
     super(props);
+    this.onClick = this.onClick.bind(this);
+  }
+  onClick() {
+    const { menuItem, makeSelection } = this.props;
+    makeSelection(menuItem.itemName);
   }
   render() {
     const { itemName, handleSelect } = this.props.menuItem;
@@ -18,7 +23,7 @@ class MenuItem extends Component {
         <div className={ className } />
         <span
           className="menu-item-text"
-          onClick={ handleSelect }
+          onClick={ this.onClick }
         >
           { itemName }
         </span>
@@ -32,7 +37,8 @@ MenuItem.proptypes = {
     itemName: PropTypes.string.isRequired,
     handleSelect: PropTypes.func.isRequired
   }).isRequired,
-  active: PropTypes.bool.isRequired
+  active: PropTypes.bool.isRequired,
+  makeSelection: PropTypes.func.isRequired
 };
 
 export default MenuItem;

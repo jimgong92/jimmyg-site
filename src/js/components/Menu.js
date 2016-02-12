@@ -30,12 +30,13 @@ class Menu extends Component {
     }
   }
   render() {
-    const { items, menuSprite } = this.props;
+    const { items, menuSprite, actions } = this.props;
     const itemList = items.map((item, i) => {
       return <MenuItem 
                 key={ i }
                 menuItem={ item } 
                 active = { i === menuSprite.position }
+                makeSelection = { actions.makeSelection }
               />;
     });
     return (
