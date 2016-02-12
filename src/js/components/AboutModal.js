@@ -18,14 +18,15 @@ class AboutModal extends Component {
         </span>
         <div className='modal-content center'>
           <p>
-          <span>I am a philosophy student turned software engineer
+          I am a philosophy student turned software engineer
           because I realized I'd rather make things happen than
           debate whether things happen. Javascript tends to be
           my tool of choice because I love its flexibility and
           work heavily with the web, but I play with multiple
-          languages.</span>
-          <span>In my free time I like to dive into basketball analytics,
-          learn about space, and make simple 8-bit games.</span>
+          languages.
+          <br /><br />
+          In my free time I like to dive into basketball analytics,
+          learn about space, and make simple 8-bit games.
           </p>
         </div>
       </div>
