@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import NameTag from './NameTag';
 
 class Header extends Component {
   render() {
     return (
       <header className="header">
-        <NameTag name={ this.props.name } />
+        <span className="header-title center">
+          { this.props.name }
+        </span>
       </header>
     );
   }

@@ -28,6 +28,7 @@ footer {
 }
 
 .app {
+  position: relative;
   color: white;
   display: flex;
   flex-direction: column;
@@ -37,55 +38,50 @@ footer {
   max-width: 60vw;
   margin: 0 auto;
   min-height: 100vh;
-  min-width: 500px;
+  min-width: 550px;
   width: 60vw;
 }
 
-.main {
-  flex: 1;
-}
-
-.name-tag {
-  // border-style: solid;
-  // border-color: white;
-  // border-width: 1px;
-  font-size: 100px;
+.header-title {
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  font-size: 120px;
   height: 1.2em;
   white-space: nowrap;
 }
 
 .menu {
-  // border-style: solid;
-  // border-color: red;
-  // border-width: 1px;
+  border-style: solid;
+  border-color: red;
+  border-width: 1px;
   list-style-type: none;
   margin: 0;  
   padding: 0;
 }
 
 .menu-item {
-  // border-style: solid;
-  // border-color: green;
-  // border-width: 1px;
+  border-style: solid;
+  border-color: green;
+  border-width: 1px;
   font-size: 60px;
   height: 1em;
-  // padding-left: 21vw;
   white-space: nowrap;
 }
 
 .menu-item-indent {
-  // border-style: solid;
-  // border-color: purple;
-  // border-width: 1px;
+  border-style: solid;
+  border-color: purple;
+  border-width: 1px;
   display: inline-block;
-  width: 21vw;
+  width: 35%;
   min-width: 20px;
 }
 
 .menu-item-text {
-  // border-style: solid;
-  // border-color: teal;
-  // border-width: 1px;
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
   cursor: pointer;
   align-items: center;
   display: inline-block;
@@ -95,9 +91,9 @@ footer {
 }
 
 .jimmy-sprite {
-  // border-style: solid;
-  // border-color: orange;
-  // border-width: 1px;
+  border-style: solid;
+  border-color: orange;
+  border-width: 1px;
   height: 28px;
   width: 25px;
   background-image: url("../images/ExSprite.png");
@@ -109,16 +105,17 @@ footer {
 
 .modal {
   position: fixed;
+  top: 15vh;
+  left: 20vw;
+  height: 70vh;
+  width: 60vw;
+  z-index: 1;
+  padding: 1vw;
   background-color: #000000;
-  opacity: 0.9;
+  opacity: 0.95;
   -webkit-transition: 0.75s;
   -moz-transition: 0.75s;
   transition: 0.75s;
-  top: 15vh;
-  left: 15vw;
-  height: 70vh;
-  width: 70vw;
-  z-index: 1;
   border-style: double;
   border-color: white;
   border-width: 5px;
@@ -131,6 +128,19 @@ footer {
   height: 0;
   opacity: 0;
   font-size: 5px;
+}
+
+.modal-title {
+  border-style: solid;
+  border-color: teal;
+  border-width: 1px;
+  font-size: 50px;
+  height: 1.2em;
+  white-space: nowrap;
+}
+
+.modal-content {
+  font-size: 20px;
 }
 
 .center {
