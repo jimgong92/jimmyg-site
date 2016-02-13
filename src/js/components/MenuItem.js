@@ -11,7 +11,7 @@ class MenuItem extends Component {
     makeSelection(menuItem.itemName);
   }
   render() {
-    const { itemName, handleSelect } = this.props.menuItem;
+    const { itemName, handleSelect, href } = this.props.menuItem;
     const className = cx({
       'jimmy-sprite': true,
       'invisible': !this.props.active
@@ -21,12 +21,14 @@ class MenuItem extends Component {
       <li className="menu-item">
         <div className="menu-item-indent" />
         <div className={ className } />
-        <span
-          className="menu-item-text"
-          onClick={ this.onClick }
-        >
-          { itemName }
-        </span>
+        <a target="_blank" href={ href }>
+          <span
+            className="menu-item-text"
+            onClick={ this.onClick }
+          >
+            { itemName }
+          </span>
+        </a>
       </li>
     );
   }
@@ -35,7 +37,8 @@ class MenuItem extends Component {
 MenuItem.proptypes = {
   menuItem: PropTypes.shape({
     itemName: PropTypes.string.isRequired,
-    handleSelect: PropTypes.func.isRequired
+    handleSelect: PropTypes.func.isRequired,
+    href: PropTypes.string
   }).isRequired,
   active: PropTypes.bool.isRequired,
   makeSelection: PropTypes.func.isRequired

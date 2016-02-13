@@ -8,26 +8,25 @@ const defaultProps = {
   selectionItems: [
     { 
       itemName: 'About',
-      handleSelect: () => {}
+      handleSelect: () => {},
+      href: null
     },
     {
       itemName: 'Blog',
-      handleSelect: () => {
-        // Refine when blog becomes subdomain
-        window.location.href = 'http://jimandtonic.azurewebsites.net';
-      }
+      handleSelect: () => {},
+      href: 'http://jimandtonic.azurewebsites.net'
     },
-    // {
-    //   itemName: 'Connect',
-    //   handleSelect: () => {
-    //     console.log('Connect');
-    //   }
-    // },
+    {
+      itemName: 'Connect',
+      handleSelect: () => {},
+      href: null
+    },
     // {
     //   itemName: 'Demos',
     //   handleSelect: () => {
     //     console.log('Demos');
-    //   }
+    //   },
+    //   href: null
     // }
   ]
 };

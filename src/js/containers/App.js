@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import Header from '../components/Header';
 import Menu from '../components/Menu';
 import AboutModal from '../components/AboutModal';
+import ConnectModal from '../components/ConnectModal';
 import defaultProps from './default';
 import MenuSpriteActions from '../actions/MenuSprite';
 
@@ -40,6 +41,10 @@ class App extends Component {
           />
           <AboutModal 
             isOpen={menuSprite.openModal === 'About'}
+            closeModal={ actions.closeModal }
+          />
+          <ConnectModal 
+            isOpen={menuSprite.openModal === 'Connect'}
             closeModal={ actions.closeModal }
           />
         </main>
