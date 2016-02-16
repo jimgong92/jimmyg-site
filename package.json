@@ -37,6 +37,7 @@
     "expect": "^1.8.0",
     "express": "^4.13.3",
     "file-loader": "^0.8.5",
+    "font-awesome": "^4.5.0",
     "jsdom": "^5.6.1",
     "less": "^2.6.0",
     "less-loader": "^2.2.2",

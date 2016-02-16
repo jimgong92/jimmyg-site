@@ -15,8 +15,7 @@ class App extends Component {
 
     if (menuSprite.openModal !== null) {
       document.body.onclick = function(e) {
-        const elementClasses = new Set(e.target.className.split(' '));
-        if (!elementClasses.has('modal')) {
+        if (e.target.nodeName === 'BODY') {
           actions.closeModal();
         }
       };

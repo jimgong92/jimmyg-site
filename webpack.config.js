@@ -29,7 +29,7 @@ module.exports = {
       include: __dirname
     },
     {
-      test: /\.(ttf|eot|svg)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
+      test: /\.(otf|eot|svg|ttf|woff|woff2)(\?v=[0-9]\.[0-9]\.[0-9])?$/,
       loaders: [ 'url' ],
       include: __dirname
     },
