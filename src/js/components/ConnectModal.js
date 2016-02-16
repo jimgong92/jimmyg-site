@@ -17,6 +17,11 @@ class ConnectModal extends Component {
           Connect
         </span>
         <div className="modal-content center">
+          <div className="icon-container inactive-icon github">
+            <a target="_blank" href="https://github.com/jimgong92">
+              <i className="fa fa-github-square fa-5x icon" />
+            </a>
+          </div>
           <div className="icon-container inactive-icon facebook">
             <a target="_blank" href="https://www.facebook.com/jimmy.gong.39">
               <i className="fa fa-facebook-square fa-5x icon" />
@@ -27,7 +32,7 @@ class ConnectModal extends Component {
               <i className="fa fa-linkedin-square fa-5x icon" />
             </a>
           </div>
-          <div className="icon-container inactive-icon gmail">
+          <div className="icon-container active-icon gmail">
             <a target="_blank" href="mailto:gong.jim@gmail.com">
               <i className="fa fa-envelope-square fa-5x icon" />
             </a>
@@ -35,11 +40,6 @@ class ConnectModal extends Component {
           <div className="icon-container inactive-icon twitter">
             <a target="_blank" href="https://twitter.com/jimmyg___">
               <i className="fa fa-twitter-square fa-5x icon" />
-            </a>
-          </div>
-          <div className="icon-container inactive-icon github">
-            <a target="_blank" href="https://github.com/jimgong92">
-              <i className="fa fa-github-square fa-5x icon" />
             </a>
           </div>
         </div>
