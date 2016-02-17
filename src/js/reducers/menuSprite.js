@@ -32,6 +32,9 @@ export default function menuSprite(state = initialState, action) {
       if (state.openModal === null) {
         // Handle Key Press
         if (!action.itemName) {
+          if (selectionItems[state.position].href) {
+            window.open(selectionItems[state.position].href);
+          }
           state.selectedAction();
           return {
             openModal: selectionItems[state.position].itemName,
