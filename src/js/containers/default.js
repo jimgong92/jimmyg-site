@@ -14,7 +14,7 @@ const defaultProps = {
     {
       itemName: 'Blog',
       handleSelect: () => {},
-      href: 'http://jimandtonic.azurewebsites.net'
+      href: 'http://blog.jimmyg.xyz'
     },
     {
       itemName: 'Connect',
