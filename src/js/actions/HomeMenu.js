@@ -1,4 +1,4 @@
-import types from '../constants/MenuSprite';
+import types from '../constants/HomeMenu';
 
 const actions = {
   moveUp: () => {

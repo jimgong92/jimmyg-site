@@ -30,12 +30,12 @@ class Menu extends Component {
     }
   }
   render() {
-    const { items, menuSprite, actions } = this.props;
+    const { items, activePosition, actions } = this.props;
     const itemList = items.map((item, i) => {
       return <MenuItem 
                 key={ item + '_' + i }
                 menuItem={ item } 
-                active = { i === menuSprite.position }
+                active = { i === activePosition }
                 makeSelection = { actions.makeSelection }
               />;
     });
@@ -48,7 +48,8 @@ class Menu extends Component {
 }
 
 Menu.proptypes = {
-  items: PropTypes.arrayOf(PropTypes.shape).isRequired
+  items: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  activePosition: PropTypes.number.isRequired
 };
 
 export default Menu;
