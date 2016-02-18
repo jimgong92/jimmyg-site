@@ -9,7 +9,15 @@ import ConnectModal from '../components/ConnectModal';
 import ConnectMenuActions from '../actions/ConnectMenu';
 import HomeMenuActions from '../actions/HomeMenu';
 
+const UP_KEY_CODES = new Set([ 38, 87 ]);
+const DOWN_KEY_CODES = new Set([ 40,83 ]);
+const ENTER_KEY_CODE = 13;
+
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
   componentDidUpdate() {
     const { actions, homeMenu } = this.props;
 
@@ -19,6 +27,25 @@ class App extends Component {
           actions.homeMenu.closeModal();
         }
       };
+    }
+  }
+  componentDidMount() {
+    document.body.addEventListener('keydown', this.handleKeyPress);
+  }
+  componentWillUnmount() {
+    document.body.removeEventListener('keydown');
+  }
+  handleKeyPress(e) {
+    const { moveUp, moveDown, makeSelection } = this.props.actions.homeMenu;
+    if (DOWN_KEY_CODES.has(e.keyCode)) {
+      moveDown();
+    }
+    if (UP_KEY_CODES.has(e.keyCode)) {
+      moveUp();
+    }
+    if (ENTER_KEY_CODE === e.keyCode) {
+      // Invoke current selectedAction
+      makeSelection();
     }
   }
   render() {
@@ -38,16 +65,16 @@ class App extends Component {
             activePosition={ homeMenu.activePosition }
             actions={ actions.homeMenu }
           />
-          <AboutModal 
-            isOpen={homeMenu.modalIsOpen === 'About'}
-            closeModal={ actions.homeMenu.closeModal }
-          />
-          <ConnectModal
-            isOpen={homeMenu.modalIsOpen === 'Connect'}
-            closeModal={ actions.homeMenu.closeModal }
-            connectMenu={ connectMenu }
-          />
         </main>
+        <AboutModal 
+          isOpen={homeMenu.modalIsOpen === 'About'}
+          closeModal={ actions.homeMenu.closeModal }
+        />
+        <ConnectModal
+          isOpen={homeMenu.modalIsOpen === 'Connect'}
+          closeModal={ actions.homeMenu.closeModal }
+          connectMenu={ connectMenu }
+        />
         <Footer />
       </div>
     );
