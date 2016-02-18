@@ -7,6 +7,7 @@ import Menu from '../components/Menu';
 import AboutModal from '../components/AboutModal';
 import ConnectModal from '../components/ConnectModal';
 import defaultProps from './default';
+import ConnectMenuActions from '../actions/ConnectMenu';
 import MenuSpriteActions from '../actions/MenuSprite';
 
 class App extends Component {
@@ -16,15 +17,16 @@ class App extends Component {
     if (menuSprite.openModal !== null) {
       document.body.onclick = function(e) {
         if (e.target.nodeName === 'BODY') {
-          actions.closeModal();
+          actions.menuSprite.closeModal();
         }
       };
     }
   }
   render() {
     const { 
-      menuSprite,
       actions,
+      connectMenu,
+      menuSprite,
       name,
       selectionItems
     } = this.props;
@@ -36,15 +38,16 @@ class App extends Component {
           <Menu 
             items={ selectionItems } 
             menuSprite={ menuSprite }
-            actions={ actions }
+            actions={ actions.menuSprite }
           />
           <AboutModal 
             isOpen={menuSprite.openModal === 'About'}
-            closeModal={ actions.closeModal }
+            closeModal={ actions.menuSprite.closeModal }
           />
-          <ConnectModal 
+          <ConnectModal
             isOpen={menuSprite.openModal === 'Connect'}
-            closeModal={ actions.closeModal }
+            closeModal={ actions.menuSprite.closeModal }
+            connectMenu={ connectMenu }
           />
         </main>
         <Footer />
@@ -55,6 +58,7 @@ class App extends Component {
 
 App.propTypes = {
   actions: PropTypes.object.isRequired,
+  connectMenu: PropTypes.object.isRequired,
   menuSprite: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   selectionItems: PropTypes.arrayOf(PropTypes.shape).isRequired
@@ -64,12 +68,16 @@ App.defaultProps = defaultProps;
 
 function mapStateToProps(state) {
   return {
+    connectMenu: state.connectMenu,
     menuSprite: state.menuSprite
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(MenuSpriteActions, dispatch)
+    actions: {
+      connectMenu: bindActionCreators(ConnectMenuActions, dispatch),
+      menuSprite: bindActionCreators(MenuSpriteActions, dispatch)
+    }
   };
 }
 

@@ -1,12 +1,12 @@
 import { MOVE_UP, MOVE_DOWN, MAKE_SELECTION, CLOSE_MODAL } from '../constants/MenuSprite';
 import { selectionItems } from '../containers/default';
 
-const MAX_MENU_INDEX = selectionItems.length - 1;
 const initialState = {
   openModal: null,
   position: 0,
   selectedAction: selectionItems[0].handleSelect
 };
+const MAX_MENU_INDEX = selectionItems.length - 1;
 
 export default function menuSprite(state = initialState, action) {
   switch (action.type) {
