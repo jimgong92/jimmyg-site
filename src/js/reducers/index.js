@@ -1,8 +1,9 @@
-import { combineReducers } from 'redux'
-import menuSprite from './menuSprite'
+import { combineReducers } from 'redux';
+import homeMenu from './homeMenu';
+import connectMenu from './connectMenu';
 
 const rootReducer = combineReducers({
-  menuSprite
+  homeMenu, connectMenu
 });
 
 export default rootReducer;

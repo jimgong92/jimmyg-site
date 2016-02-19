@@ -6,27 +6,27 @@ import Header from '../components/Header';
 import Menu from '../components/Menu';
 import AboutModal from '../components/AboutModal';
 import ConnectModal from '../components/ConnectModal';
-import defaultProps from './default';
-import MenuSpriteActions from '../actions/MenuSprite';
+import ConnectMenuActions from '../actions/ConnectMenu';
+import HomeMenuActions from '../actions/HomeMenu';
 
 class App extends Component {
   componentDidUpdate() {
-    const { actions, menuSprite } = this.props;
+    const { actions, homeMenu } = this.props;
 
-    if (menuSprite.openModal !== null) {
+    if (homeMenu.openModalName !== null) {
       document.body.onclick = function(e) {
         if (e.target.nodeName === 'BODY') {
-          actions.closeModal();
+          actions.homeMenu.closeModal();
         }
       };
     }
   }
   render() {
     const { 
-      menuSprite,
       actions,
-      name,
-      selectionItems
+      connectMenu,
+      homeMenu,
+      name
     } = this.props;
 
     return (
@@ -34,19 +34,23 @@ class App extends Component {
         <main className="main">
           <Header name={ name } />
           <Menu 
-            items={ selectionItems } 
-            menuSprite={ menuSprite }
-            actions={ actions }
-          />
-          <AboutModal 
-            isOpen={menuSprite.openModal === 'About'}
-            closeModal={ actions.closeModal }
-          />
-          <ConnectModal 
-            isOpen={menuSprite.openModal === 'Connect'}
-            closeModal={ actions.closeModal }
+            items={ homeMenu.items }
+            activePosition={ homeMenu.activePosition }
+            actions={ actions.homeMenu }
+            kbIsActive={ homeMenu.openModalName === null }
           />
         </main>
+        <AboutModal 
+          isOpen={homeMenu.openModalName === 'About'}
+          closeModal={ actions.homeMenu.closeModal }
+        />
+        <ConnectModal
+          isOpen={homeMenu.openModalName === 'Connect'}
+          closeModal={ actions.homeMenu.closeModal }
+          activePosition={ connectMenu.activePosition }
+          items={ connectMenu.items }
+          actions={ actions }
+        />
         <Footer />
       </div>
     );
@@ -55,21 +59,27 @@ class App extends Component {
 
 App.propTypes = {
   actions: PropTypes.object.isRequired,
-  menuSprite: PropTypes.object.isRequired,
-  name: PropTypes.string.isRequired,
-  selectionItems: PropTypes.arrayOf(PropTypes.shape).isRequired
+  connectMenu: PropTypes.object.isRequired,
+  homeMenu: PropTypes.object.isRequired,
+  name: PropTypes.string.isRequired
 };
 
-App.defaultProps = defaultProps;
+App.defaultProps = {
+  name: 'Jimmy Gong'
+};
 
 function mapStateToProps(state) {
   return {
-    menuSprite: state.menuSprite
+    connectMenu: state.connectMenu,
+    homeMenu: state.homeMenu
   };
 }
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(MenuSpriteActions, dispatch)
+    actions: {
+      connectMenu: bindActionCreators(ConnectMenuActions, dispatch),
+      homeMenu: bindActionCreators(HomeMenuActions, dispatch)
+    }
   };
 }
 

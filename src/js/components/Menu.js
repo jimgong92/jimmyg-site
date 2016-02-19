@@ -10,32 +10,38 @@ class Menu extends Component {
     super(props);
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
-  componentDidMount() {
-    document.body.addEventListener('keydown', this.handleKeyPress);
+  componentWillMount() {
+    document.body.onkeydown = this.handleKeyPress;
   }
   componentWillUnmount() {
     document.body.removeEventListener('keydown');
   }
+  componentDidUpdate() {
+    if (this.props.kbIsActive) {
+      document.body.onkeydown = this.handleKeyPress;
+    }
+  }
   handleKeyPress(e) {
-    const { moveUp, moveDown, makeSelection } = this.props.actions;
-    if (DOWN_KEY_CODES.has(e.keyCode)) {
-      moveDown();
-    }
-    if (UP_KEY_CODES.has(e.keyCode)) {
-      moveUp();
-    }
-    if (ENTER_KEY_CODE === e.keyCode) {
-      // Invoke current selectedAction
-      makeSelection();
+    if (this.props.kbIsActive) {
+      const { moveUp, moveDown, makeSelection } = this.props.actions;
+      if (DOWN_KEY_CODES.has(e.keyCode)) {
+        moveDown();
+      }
+      if (UP_KEY_CODES.has(e.keyCode)) {
+        moveUp();
+      }
+      if (ENTER_KEY_CODE === e.keyCode) {
+        makeSelection();
+      }
     }
   }
   render() {
-    const { items, menuSprite, actions } = this.props;
+    const { items, activePosition, actions } = this.props;
     const itemList = items.map((item, i) => {
       return <MenuItem 
-                key={ i }
+                key={ item + '_' + i }
                 menuItem={ item } 
-                active = { i === menuSprite.position }
+                active = { i === activePosition }
                 makeSelection = { actions.makeSelection }
               />;
     });
@@ -48,7 +54,10 @@ class Menu extends Component {
 }
 
 Menu.proptypes = {
-  items: PropTypes.arrayOf(PropTypes.shape).isRequired
+  kbIsActive: PropTypes.bool.isRequired,
+  actions: PropTypes.object.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  activePosition: PropTypes.number.isRequired
 };
 
 export default Menu;

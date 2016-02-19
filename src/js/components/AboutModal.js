@@ -1,12 +1,28 @@
 import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
 
+const EXIT_KEY_CODES = new Set([ 13, 27]);
+
 class AboutModal extends Component {
   constructor(props) {
     super(props);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+  componentDidUpdate() {
+    if (this.props.isOpen) {
+      document.body.onkeydown = this.handleKeyPress;
+    }
+  }
+  handleKeyPress(e) {
+    const { isOpen, closeModal } = this.props;
+    if (isOpen) {
+      if (EXIT_KEY_CODES.has(e.keyCode)) {
+        closeModal();
+      }
+    }
   }
   render() {
-    const { closeModal, isOpen } = this.props;
+    const { isOpen } = this.props;
     const className = cx({
       'modal': true,
       'modal-close': !isOpen,
@@ -36,7 +52,8 @@ class AboutModal extends Component {
 }
 
 AboutModal.propTypes = {
-  isOpen: PropTypes.bool.isRequired
+  isOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired
 }
 
 export default AboutModal;
