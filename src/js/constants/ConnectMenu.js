@@ -1,7 +1,7 @@
 const ConnectMenuTypes = {
   MOVE_LEFT: 'MOVE_LEFT',
   MOVE_RIGHT: 'MOVE_RIGHT',
-  MAKE_SELECTION: 'MAKE_SELECTION'
+  SELECT_CONNECTION: 'SELECT_CONNECTION'
 };
 
 export default ConnectMenuTypes;

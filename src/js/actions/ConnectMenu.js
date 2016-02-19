@@ -7,8 +7,8 @@ const actions = {
   moveRight: () => {
     return { type: types.MOVE_RIGHT };
   },
-  makeSelection: () => {
-    return { type: types.MAKE_SELECTION };
+  selectConnection: () => {
+    return { type: types.SELECT_CONNECTION };
   }
 }
 

@@ -9,16 +9,7 @@ import ConnectModal from '../components/ConnectModal';
 import ConnectMenuActions from '../actions/ConnectMenu';
 import HomeMenuActions from '../actions/HomeMenu';
 
-const UP_KEY_CODES = new Set([ 38, 87 ]);
-const DOWN_KEY_CODES = new Set([ 40,83 ]);
-const ENTER_KEY_CODE = 13;
-const ESC_KEY_CODE = 27;
-
 class App extends Component {
-  constructor(props){
-    super(props);
-    this.handleKeyPress = this.handleKeyPress.bind(this);
-  }
   componentDidUpdate() {
     const { actions, homeMenu } = this.props;
 
@@ -28,28 +19,6 @@ class App extends Component {
           actions.homeMenu.closeModal();
         }
       };
-    }
-  }
-  componentDidMount() {
-    document.body.addEventListener('keydown', this.handleKeyPress);
-  }
-  componentWillUnmount() {
-    document.body.removeEventListener('keydown');
-  }
-  handleKeyPress(e) {
-    const { moveUp, moveDown, makeSelection } = this.props.actions.homeMenu;
-    if (DOWN_KEY_CODES.has(e.keyCode)) {
-      moveDown();
-    }
-    if (UP_KEY_CODES.has(e.keyCode)) {
-      moveUp();
-    }
-    if (ENTER_KEY_CODE === e.keyCode) {
-      // Invoke current selectedAction
-      makeSelection();
-    }
-    if (ESC_KEY_CODE === e.keyCode) {
-      this.props.actions.homeMenu.closeModal();
     }
   }
   render() {
@@ -68,6 +37,7 @@ class App extends Component {
             items={ homeMenu.items }
             activePosition={ homeMenu.activePosition }
             actions={ actions.homeMenu }
+            kbIsActive={ homeMenu.openModalName === null }
           />
         </main>
         <AboutModal 
@@ -79,6 +49,7 @@ class App extends Component {
           closeModal={ actions.homeMenu.closeModal }
           activePosition={ connectMenu.activePosition }
           items={ connectMenu.items }
+          actions={ actions }
         />
         <Footer />
       </div>
