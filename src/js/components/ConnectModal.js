@@ -8,18 +8,18 @@ class ConnectModal extends Component {
     super(props);
   }
   render() {
-    const { closeModal, isOpen, connectMenu } = this.props;
+    const { closeModal, isOpen, items, activePosition } = this.props;
     const className = cx({
       'modal': true,
       'modal-close': !isOpen,
       'connect-modal': true
     });
-    const iconList = connectMenu.menu.map((item, i) => {
+    const iconList = items.map((item, i) => {
       return <ConnectIcon
               key={ item + '_' + i }
               href={ item.href }
               logoName={ item.logoName }
-              isActive={ i === connectMenu.position}
+              isActive={ i === activePosition}
             />
     });
     return (

@@ -1,8 +1,8 @@
 import { MOVE_LEFT, MOVE_RIGHT, MAKE_SELECTION } from '../constants/ConnectMenu';
 
 const initialState = {
-  position: 0,
-  menu: [
+  activePosition: 0,
+  items: [
     {
       logoName: 'twitter',
       href: 'https://twitter.com/jimmyg___'
@@ -25,7 +25,7 @@ const initialState = {
     }
   ]
 };
-const MAX_MENU_INDEX = initialState.menu.length - 1;
+const MAX_MENU_INDEX = initialState.items.length - 1;
 
 export default function connectMenu(state = initialState, action) {
   switch (action.type) {
@@ -35,7 +35,7 @@ export default function connectMenu(state = initialState, action) {
       }
       return {
         position: state.position,
-        menu: state.menu
+        items: state.items
       };
     case MOVE_RIGHT:
       if (state.position < MAX_MENU_INDEX){
@@ -43,7 +43,7 @@ export default function connectMenu(state = initialState, action) {
       }
       return {
         position: state.position,
-        menu: state.menu
+        items: state.items
       };
     default:
       return state;

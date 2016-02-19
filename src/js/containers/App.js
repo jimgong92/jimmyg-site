@@ -73,7 +73,8 @@ class App extends Component {
         <ConnectModal
           isOpen={homeMenu.modalIsOpen === 'Connect'}
           closeModal={ actions.homeMenu.closeModal }
-          connectMenu={ connectMenu }
+          activePosition={ connectMenu.activePosition }
+          items={ connectMenu.items }
         />
         <Footer />
       </div>
