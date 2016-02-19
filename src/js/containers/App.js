@@ -28,6 +28,7 @@ class App extends Component {
       homeMenu,
       name
     } = this.props;
+    console.log(homeMenu.openModalName);
 
     return (
       <div>
