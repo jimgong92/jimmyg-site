@@ -57,9 +57,12 @@ export default function menuSprite(state = initialState, action) {
           if (state.items[state.activePosition].href) {
             window.open(state.items[state.activePosition].href);
           }
+          else {
+            state.openModalName = state.items[state.activePosition].itemName;
+          }
           state.items[state.activePosition].handleSelect();
           return {
-            openModalName: state.items[state.activePosition].itemName,
+            openModalName: state.openModalName,
             activePosition: state.activePosition,
             items: state.items
           };
@@ -68,7 +71,10 @@ export default function menuSprite(state = initialState, action) {
         for (let i = 0; i < state.items.length; i++) {
           let item = state.items[i];
           if (item.itemName === action.itemName) {
-            state.openModalName = item.itemName;
+            // If modal, set openModalName
+            if (item.href === null) {
+              state.openModalName = item.itemName;
+            }
             state.activePosition = i;
             state.items[state.activePosition].handleSelect();
             return {
