@@ -12,6 +12,7 @@ import HomeMenuActions from '../actions/HomeMenu';
 const UP_KEY_CODES = new Set([ 38, 87 ]);
 const DOWN_KEY_CODES = new Set([ 40,83 ]);
 const ENTER_KEY_CODE = 13;
+const ESC_KEY_CODE = 27;
 
 class App extends Component {
   constructor(props){
@@ -21,7 +22,7 @@ class App extends Component {
   componentDidUpdate() {
     const { actions, homeMenu } = this.props;
 
-    if (homeMenu.modalIsOpen !== null) {
+    if (homeMenu.openModalName !== null) {
       document.body.onclick = function(e) {
         if (e.target.nodeName === 'BODY') {
           actions.homeMenu.closeModal();
@@ -47,6 +48,9 @@ class App extends Component {
       // Invoke current selectedAction
       makeSelection();
     }
+    if (ESC_KEY_CODE === e.keyCode) {
+      this.props.actions.homeMenu.closeModal();
+    }
   }
   render() {
     const { 
@@ -67,11 +71,11 @@ class App extends Component {
           />
         </main>
         <AboutModal 
-          isOpen={homeMenu.modalIsOpen === 'About'}
+          isOpen={homeMenu.openModalName === 'About'}
           closeModal={ actions.homeMenu.closeModal }
         />
         <ConnectModal
-          isOpen={homeMenu.modalIsOpen === 'Connect'}
+          isOpen={homeMenu.openModalName === 'Connect'}
           closeModal={ actions.homeMenu.closeModal }
           activePosition={ connectMenu.activePosition }
           items={ connectMenu.items }

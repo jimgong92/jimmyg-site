@@ -40,7 +40,8 @@ class ConnectModal extends Component {
 ConnectModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
-  connectMenu: PropTypes.object.isRequired
+  activePosition: PropTypes.number.isRequired,
+  items: PropTypes.arrayOf(PropTypes.object).isRequired
 }
 
 export default ConnectModal;

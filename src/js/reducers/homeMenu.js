@@ -1,7 +1,7 @@
 import { MOVE_UP, MOVE_DOWN, MAKE_SELECTION, CLOSE_MODAL } from '../constants/HomeMenu';
 
 const initialState = {
-  modalIsOpen: null,
+  openModalName: null,
   activePosition: 0,
   items: [
     { 
@@ -37,7 +37,7 @@ export default function menuSprite(state = initialState, action) {
         state.activePosition--;
       }
       return {
-        modalIsOpen: state.modalIsOpen,
+        openModalName: state.openModalName,
         activePosition: state.activePosition,
         items: state.items
       };
@@ -46,12 +46,12 @@ export default function menuSprite(state = initialState, action) {
         state.activePosition++;
       }
       return {
-        modalIsOpen: state.modalIsOpen,
+        openModalName: state.openModalName,
         activePosition: state.activePosition,
         items: state.items
       };
     case MAKE_SELECTION:
-      if (state.modalIsOpen === null) {
+      if (state.openModalName === null) {
         // Handle Key Press
         if (!action.itemName) {
           if (state.items[state.activePosition].href) {
@@ -59,7 +59,7 @@ export default function menuSprite(state = initialState, action) {
           }
           state.items[state.activePosition].handleSelect();
           return {
-            modalIsOpen: state.items[state.activePosition].itemName,
+            openModalName: state.items[state.activePosition].itemName,
             activePosition: state.activePosition,
             items: state.items
           };
@@ -68,11 +68,11 @@ export default function menuSprite(state = initialState, action) {
         for (let i = 0; i < state.items.length; i++) {
           let item = state.items[i];
           if (item.itemName === action.itemName) {
-            state.modalIsOpen = item.itemName;
+            state.openModalName = item.itemName;
             state.activePosition = i;
             state.items[state.activePosition].handleSelect();
             return {
-              modalIsOpen: state.modalIsOpen,
+              openModalName: state.openModalName,
               activePosition: state.activePosition,
               items: state.items
             };
@@ -85,7 +85,7 @@ export default function menuSprite(state = initialState, action) {
       document.body.onclick = null;
 
       return {
-        modalIsOpen: null,
+        openModalName: null,
         activePosition: state.activePosition,
         items: state.items
       };
