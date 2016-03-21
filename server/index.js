@@ -8,7 +8,7 @@ var config = require('../webpack.config');
 
 var app = express();
 var STATIC_PATH = path.join(__dirname, '../');
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 3000;
 
 var compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: config.output.publicPath }));
