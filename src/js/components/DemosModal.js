@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
-import ConnectIcon from './ConnectIcon';
 
+const UP_KEY_CODES = new Set([ 38, 87 ]);
+const DOWN_KEY_CODES = new Set([ 40, 83 ]);
 const LEFT_KEY_CODES = new Set([ 37, 65 ]);
 const RIGHT_KEY_CODES = new Set([ 39, 68 ]);
 const ENTER_KEY_CODE = 13;
 const ESC_KEY_CODE = 27;
 
-class ConnectModal extends Component {
+class DemosModal extends Component {
   constructor(props) {
     super(props);
     this.handleKeyPress = this.handleKeyPress.bind(this);
@@ -19,8 +20,14 @@ class ConnectModal extends Component {
   }
   handleKeyPress(e) {
     if (this.props.isOpen) {
-      const { moveLeft, moveRight, selectConnection } = this.props.actions.connectMenu;
+      const { moveUp, moveDown, moveLeft, moveRight, selectDemo } = this.props.actions.demoMenu;
       const { closeModal } = this.props.actions.homeMenu;
+      if (UP_KEY_CODES.has(e.keyCode)) {
+        moveUp();
+      }
+      if (DOWN_KEY_CODES.has(e.keyCode)) {
+        moveDown();
+      }
       if (LEFT_KEY_CODES.has(e.keyCode)) {
         moveLeft();
       }
@@ -36,28 +43,21 @@ class ConnectModal extends Component {
     }
   }
   render() {
-    const { closeModal, isOpen, items, activePosition } = this.props;
+    const { closeModal, isOpen } = this.props;
     const className = cx({
       'modal': true,
       'modal-close': !isOpen,
-      'connect-modal': true
+      'demos-modal': true
     });
-    const iconList = items.map((item, i) => {
-      return <ConnectIcon
-              key={ item + '_' + i }
-              href={ item.href }
-              logoName={ item.logoName }
-              isActive={ i === activePosition}
-            />
-    });
+
     return (
       <div className={ className }>
         <span className="modal-title center">
-          Connect
+          Demos
         </span>
         <div className="modal-content center">
-          <div className="connect-menu">
-            { iconList }
+          <div className="demo-menu">
+            Demos here
           </div>
         </div>
       </div>
@@ -65,11 +65,11 @@ class ConnectModal extends Component {
   }
 }
 
-ConnectModal.propTypes = {
+DemosModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
-  activePosition: PropTypes.number.isRequired,
-  items: PropTypes.arrayOf(PropTypes.object).isRequired
+  items: PropTypes.func.isRequired,
+  activePosition: PropTypes.number.isRequired
 };
 
-export default ConnectModal;
+export default DemosModal;
