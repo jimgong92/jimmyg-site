@@ -22,24 +22,13 @@ class DemosModal extends Component {
     if (this.props.isOpen) {
       const { moveUp, moveDown, moveLeft, moveRight, selectDemo } = this.props.actions.demoMenu;
       const { closeModal } = this.props.actions.homeMenu;
-      if (UP_KEY_CODES.has(e.keyCode)) {
-        moveUp();
-      }
-      if (DOWN_KEY_CODES.has(e.keyCode)) {
-        moveDown();
-      }
-      if (LEFT_KEY_CODES.has(e.keyCode)) {
-        moveLeft();
-      }
-      if (RIGHT_KEY_CODES.has(e.keyCode)) {
-        moveRight();
-      }
-      if (ENTER_KEY_CODE === e.keyCode) {
-        selectConnection();
-      }
-      if (ESC_KEY_CODE === e.keyCode) {
-        closeModal();
-      }
+
+      if (UP_KEY_CODES.has(e.keyCode)) moveUp();
+      if (DOWN_KEY_CODES.has(e.keyCode)) moveDown();
+      if (LEFT_KEY_CODES.has(e.keyCode)) moveLeft();
+      if (RIGHT_KEY_CODES.has(e.keyCode)) moveRight();
+      if (ENTER_KEY_CODE === e.keyCode) selectConnection();
+      if (ESC_KEY_CODE === e.keyCode) closeModal();
     }
   }
   render() {

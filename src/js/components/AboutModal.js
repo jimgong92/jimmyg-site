@@ -15,11 +15,8 @@ class AboutModal extends Component {
   }
   handleKeyPress(e) {
     const { isOpen, closeModal } = this.props;
-    if (isOpen) {
-      if (EXIT_KEY_CODES.has(e.keyCode)) {
-        closeModal();
-      }
-    }
+    
+    if (isOpen && EXIT_KEY_CODES.has(e.keyCode)) closeModal();
   }
   render() {
     const { isOpen } = this.props;

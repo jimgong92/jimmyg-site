@@ -21,18 +21,11 @@ class ConnectModal extends Component {
     if (this.props.isOpen) {
       const { moveLeft, moveRight, selectConnection } = this.props.actions.connectMenu;
       const { closeModal } = this.props.actions.homeMenu;
-      if (LEFT_KEY_CODES.has(e.keyCode)) {
-        moveLeft();
-      }
-      if (RIGHT_KEY_CODES.has(e.keyCode)) {
-        moveRight();
-      }
-      if (ENTER_KEY_CODE === e.keyCode) {
-        selectConnection();
-      }
-      if (ESC_KEY_CODE === e.keyCode) {
-        closeModal();
-      }
+
+      if (LEFT_KEY_CODES.has(e.keyCode)) moveLeft();
+      if (RIGHT_KEY_CODES.has(e.keyCode)) moveRight();
+      if (ENTER_KEY_CODE === e.keyCode) selectConnection();
+      if (ESC_KEY_CODE === e.keyCode) closeModal();
     }
   }
   render() {
