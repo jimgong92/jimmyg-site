@@ -13,8 +13,8 @@ const actions = {
   moveRight: () => {
     return { type: types.MOVE_RIGHT };
   },
-  selectDemo: () => {
-    return { type: types.SELECT_DEMO };
+  makeSelection: () => {
+    return { type: types.MAKE_SELECTION };
   }
 }
 
