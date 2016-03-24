@@ -7,6 +7,7 @@ import Menu from '../components/Menu';
 import AboutModal from '../components/AboutModal';
 import ConnectModal from '../components/ConnectModal';
 import ConnectMenuActions from '../actions/ConnectMenu';
+import DemoMenuActions from '../actions/DemoMenu';
 import HomeMenuActions from '../actions/HomeMenu';
 
 class App extends Component {
@@ -60,6 +61,7 @@ class App extends Component {
 App.propTypes = {
   actions: PropTypes.object.isRequired,
   connectMenu: PropTypes.object.isRequired,
+  demoMenu: PropTypes.object.isRequired,
   homeMenu: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired
 };
@@ -71,6 +73,7 @@ App.defaultProps = {
 function mapStateToProps(state) {
   return {
     connectMenu: state.connectMenu,
+    demoMenu: state.demoMenu,
     homeMenu: state.homeMenu
   };
 }
@@ -78,6 +81,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       connectMenu: bindActionCreators(ConnectMenuActions, dispatch),
+      demoMenu: bindActionCreators(DemoMenuActions, dispatch),
       homeMenu: bindActionCreators(HomeMenuActions, dispatch)
     }
   };

@@ -1,4 +1,4 @@
-import { MOVE_LEFT, MOVE_RIGHT, SELECT_CONNECTION } from '../constants/demoMenu';
+import { MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, MAKE_SELECTION } from '../constants/DemoMenu';
 
 const initialState = {
   rowPosition: 0,
