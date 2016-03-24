@@ -37,7 +37,7 @@ class ConnectModal extends Component {
     });
     const iconList = items.map((item, i) => {
       return <ConnectIcon
-              key={ item + '_' + i }
+              key={ `${item}_${i}` }
               href={ item.href }
               logoName={ item.logoName }
               isActive={ i === activePosition}

@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import cx from 'classnames';
+import DemoEntry from './DemoEntry';
 
 const UP_KEY_CODES = new Set([ 38, 87 ]);
 const DOWN_KEY_CODES = new Set([ 40, 83 ]);
@@ -27,16 +28,27 @@ class DemosModal extends Component {
       if (DOWN_KEY_CODES.has(e.keyCode)) moveDown();
       if (LEFT_KEY_CODES.has(e.keyCode)) moveLeft();
       if (RIGHT_KEY_CODES.has(e.keyCode)) moveRight();
-      if (ENTER_KEY_CODE === e.keyCode) selectConnection();
+      if (ENTER_KEY_CODE === e.keyCode) makeSelection();
       if (ESC_KEY_CODE === e.keyCode) closeModal();
     }
   }
   render() {
-    const { closeModal, isOpen } = this.props;
+    const { closeModal, isOpen, items, rowPosition, colPosition } = this.props;
     const className = cx({
       'modal': true,
       'modal-close': !isOpen,
       'demos-modal': true
+    });
+
+    const demoList = items.map((item, i) => {
+      return <DemoEntry
+              key={ `${item}_${i}` }
+              href={ item.href }
+              projectName={ item.projectName }
+              src={ item.src }
+              hrefActive={ rowPosition === i && colPosition === 0 }
+              srcActive={ rowPosition === i && colPosition === 1 }
+            />;
     });
 
     return (
@@ -46,7 +58,7 @@ class DemosModal extends Component {
         </span>
         <div className="modal-content center">
           <div className="demos-menu">
-            Demos here
+            { demoList }
           </div>
         </div>
       </div>

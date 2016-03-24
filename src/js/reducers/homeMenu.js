@@ -6,24 +6,18 @@ const initialState = {
   items: [
     { 
       itemName: 'About',
-      handleSelect: () => {},
       href: null
     },
     {
       itemName: 'Blog',
-      handleSelect: () => {},
       href: 'http://blog.jimmyg.xyz'
     },
     {
       itemName: 'Connect',
-      handleSelect: () => {},
       href: null
     },
     {
       itemName: 'Demos',
-      handleSelect: () => {
-        console.log('Demos');
-      },
       href: null
     }
   ]
@@ -60,7 +54,6 @@ export default function menuSprite(state = initialState, action) {
           else {
             state.openModalName = state.items[state.activePosition].itemName;
           }
-          state.items[state.activePosition].handleSelect();
           return {
             openModalName: state.openModalName,
             activePosition: state.activePosition,
@@ -76,7 +69,6 @@ export default function menuSprite(state = initialState, action) {
               state.openModalName = item.itemName;
             }
             state.activePosition = i;
-            state.items[state.activePosition].handleSelect();
             return {
               openModalName: state.openModalName,
               activePosition: state.activePosition,

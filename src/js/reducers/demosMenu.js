@@ -5,7 +5,7 @@ const initialState = {
   colPosition: 0,
   items: [
     {
-      projectName: 'twitbox',
+      projectName: 'Twitbox',
       href: 'http://twitbox.jimmyg.xyz',
       src: 'https://github.com/twitbox/twitbox-client'
     }
