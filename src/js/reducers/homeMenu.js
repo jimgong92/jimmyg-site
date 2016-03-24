@@ -19,13 +19,13 @@ const initialState = {
       handleSelect: () => {},
       href: null
     },
-    // {
-    //   itemName: 'Demos',
-    //   handleSelect: () => {
-    //     console.log('Demos');
-    //   },
-    //   href: null
-    // }
+    {
+      itemName: 'Demos',
+      handleSelect: () => {
+        console.log('Demos');
+      },
+      href: null
+    }
   ]
 };
 const MAX_MENU_INDEX = initialState.items.length - 1;

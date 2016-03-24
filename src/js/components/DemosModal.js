@@ -20,7 +20,7 @@ class DemosModal extends Component {
   }
   handleKeyPress(e) {
     if (this.props.isOpen) {
-      const { moveUp, moveDown, moveLeft, moveRight, selectDemo } = this.props.actions.demoMenu;
+      const { moveUp, moveDown, moveLeft, moveRight, makeSelection } = this.props.actions.demosMenu;
       const { closeModal } = this.props.actions.homeMenu;
 
       if (UP_KEY_CODES.has(e.keyCode)) moveUp();
@@ -45,7 +45,7 @@ class DemosModal extends Component {
           Demos
         </span>
         <div className="modal-content center">
-          <div className="demo-menu">
+          <div className="demos-menu">
             Demos here
           </div>
         </div>
@@ -57,8 +57,9 @@ class DemosModal extends Component {
 DemosModal.propTypes = {
   isOpen: PropTypes.bool.isRequired,
   closeModal: PropTypes.func.isRequired,
-  items: PropTypes.func.isRequired,
-  activePosition: PropTypes.number.isRequired
+  items: PropTypes.arrayOf(PropTypes.object).isRequired,
+  rowPosition: PropTypes.number.isRequired,
+  colPosition: PropTypes.number.isRequired
 };
 
 export default DemosModal;

@@ -6,8 +6,9 @@ import Header from '../components/Header';
 import Menu from '../components/Menu';
 import AboutModal from '../components/AboutModal';
 import ConnectModal from '../components/ConnectModal';
+import DemosModal from '../components/DemosModal';
 import ConnectMenuActions from '../actions/ConnectMenu';
-import DemoMenuActions from '../actions/DemoMenu';
+import DemosMenuActions from '../actions/DemosMenu';
 import HomeMenuActions from '../actions/HomeMenu';
 
 class App extends Component {
@@ -26,6 +27,7 @@ class App extends Component {
     const { 
       actions,
       connectMenu,
+      demosMenu,
       homeMenu,
       name
     } = this.props;
@@ -52,6 +54,14 @@ class App extends Component {
           items={ connectMenu.items }
           actions={ actions }
         />
+        <DemosModal
+          isOpen={homeMenu.openModalName === 'Demos'}
+          closeModal={ actions.homeMenu.closeModal }
+          rowPosition={ demosMenu.rowPosition }
+          colPosition={ demosMenu.colPosition }
+          items={ demosMenu.items }
+          actions={ actions }
+        />
         <Footer />
       </div>
     );
@@ -61,7 +71,7 @@ class App extends Component {
 App.propTypes = {
   actions: PropTypes.object.isRequired,
   connectMenu: PropTypes.object.isRequired,
-  demoMenu: PropTypes.object.isRequired,
+  demosMenu: PropTypes.object.isRequired,
   homeMenu: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired
 };
@@ -73,7 +83,7 @@ App.defaultProps = {
 function mapStateToProps(state) {
   return {
     connectMenu: state.connectMenu,
-    demoMenu: state.demoMenu,
+    demosMenu: state.demosMenu,
     homeMenu: state.homeMenu
   };
 }
@@ -81,7 +91,7 @@ function mapDispatchToProps(dispatch) {
   return {
     actions: {
       connectMenu: bindActionCreators(ConnectMenuActions, dispatch),
-      demoMenu: bindActionCreators(DemoMenuActions, dispatch),
+      demosMenu: bindActionCreators(DemosMenuActions, dispatch),
       homeMenu: bindActionCreators(HomeMenuActions, dispatch)
     }
   };

@@ -1,4 +1,4 @@
-import types from '../constants/DemoMenu';
+import types from '../constants/DemosMenu';
 
 const actions = {
   moveUp: () => {

@@ -1,4 +1,4 @@
-const DemoMenuTypes = {
+const DemosMenuTypes = {
   MOVE_UP: 'MOVE_UP',
   MOVE_DOWN: 'MOVE_DOWN',
   MOVE_LEFT: 'MOVE_LEFT',
@@ -6,4 +6,4 @@ const DemoMenuTypes = {
   MAKE_SELECTION: 'MAKE_SELECTION'
 };
 
-export default DemoMenuTypes;
+export default DemosMenuTypes;

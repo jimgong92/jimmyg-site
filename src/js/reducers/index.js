@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import homeMenu from './homeMenu';
 import connectMenu from './connectMenu';
-import demoMenu from './demoMenu';
+import demosMenu from './demosMenu';
 
 const rootReducer = combineReducers({
-  homeMenu, connectMenu, demoMenu
+  homeMenu, connectMenu, demosMenu
 });
 
 export default rootReducer;

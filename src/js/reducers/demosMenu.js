@@ -1,4 +1,4 @@
-import { MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, MAKE_SELECTION } from '../constants/DemoMenu';
+import { MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, MAKE_SELECTION } from '../constants/DemosMenu';
 
 const initialState = {
   rowPosition: 0,
@@ -13,7 +13,7 @@ const initialState = {
 };
 const MAX_MENU_INDEX = initialState.items.length - 1;
 
-export default function demoMenu(state = initialState, action) {
+export default function demosMenu(state = initialState, action) {
   switch (action.type) {
     case MOVE_UP:
       if (state.rowPosition > 0){
