@@ -2,13 +2,13 @@ import types from '../constants/HomeMenu';
 
 const actions = {
   moveUp: () => {
-    return { type: types.MOVE_UP };
+    return { type: types.HOME_MOVE_UP };
   },
   moveDown: () => {
-    return { type: types.MOVE_DOWN };
+    return { type: types.HOME_MOVE_DOWN };
   },
   makeSelection: (itemName) => {
-    return { type: types.MAKE_SELECTION, itemName: itemName };
+    return { type: types.HOME_SELECT, itemName: itemName };
   },
   closeModal: () => {
     return { type: types.CLOSE_MODAL };

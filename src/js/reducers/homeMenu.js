@@ -1,4 +1,4 @@
-import { MOVE_UP, MOVE_DOWN, MAKE_SELECTION, CLOSE_MODAL } from '../constants/HomeMenu';
+import { HOME_MOVE_UP, HOME_MOVE_DOWN, HOME_SELECT, CLOSE_MODAL } from '../constants/HomeMenu';
 
 const initialState = {
   openModalName: null,
@@ -32,7 +32,7 @@ const MAX_MENU_INDEX = initialState.items.length - 1;
 
 export default function menuSprite(state = initialState, action) {
   switch (action.type) {
-    case MOVE_UP:
+    case HOME_MOVE_UP:
       if (state.activePosition > 0){
         state.activePosition--;
       }
@@ -41,7 +41,7 @@ export default function menuSprite(state = initialState, action) {
         activePosition: state.activePosition,
         items: state.items
       };
-    case MOVE_DOWN:
+    case HOME_MOVE_DOWN:
       if (state.activePosition < (MAX_MENU_INDEX)){
         state.activePosition++;
       }
@@ -50,7 +50,7 @@ export default function menuSprite(state = initialState, action) {
         activePosition: state.activePosition,
         items: state.items
       };
-    case MAKE_SELECTION:
+    case HOME_SELECT:
       if (state.openModalName === null) {
         // Handle Key Press
         if (!action.itemName) {

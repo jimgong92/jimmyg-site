@@ -1,4 +1,4 @@
-import { MOVE_LEFT, MOVE_RIGHT, SELECT_CONNECTION } from '../constants/ConnectMenu';
+import { CONNECT_MOVE_LEFT, CONNECT_MOVE_RIGHT, CONNECT_SELECT } from '../constants/ConnectMenu';
 
 const initialState = {
   activePosition: 0,
@@ -29,7 +29,7 @@ const MAX_MENU_INDEX = initialState.items.length - 1;
 
 export default function connectMenu(state = initialState, action) {
   switch (action.type) {
-    case MOVE_LEFT:
+    case CONNECT_MOVE_LEFT:
       if (state.activePosition > 0){
         state.activePosition--;
       }
@@ -37,7 +37,7 @@ export default function connectMenu(state = initialState, action) {
         activePosition: state.activePosition,
         items: state.items
       };
-    case MOVE_RIGHT:
+    case CONNECT_MOVE_RIGHT:
       if (state.activePosition < MAX_MENU_INDEX){
         state.activePosition++;
       }
@@ -45,7 +45,7 @@ export default function connectMenu(state = initialState, action) {
         activePosition: state.activePosition,
         items: state.items
       };
-    case SELECT_CONNECTION:
+    case CONNECT_SELECT:
       // Handle Key Press
       window.open(state.items[state.activePosition].href);
       return {

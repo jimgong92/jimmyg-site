@@ -2,19 +2,19 @@ import types from '../constants/DemosMenu';
 
 const actions = {
   moveUp: () => {
-    return { type: types.MOVE_UP };
+    return { type: types.DEMO_MOVE_UP };
   },
   moveDown: () => {
-    return { type: types.MOVE_DOWN };
+    return { type: types.DEMO_MOVE_DOWN };
   },
   moveLeft: () => {
-    return { type: types.MOVE_LEFT };
+    return { type: types.DEMO_MOVE_LEFT };
   },
   moveRight: () => {
-    return { type: types.MOVE_RIGHT };
+    return { type: types.DEMO_MOVE_RIGHT };
   },
   makeSelection: () => {
-    return { type: types.MAKE_SELECTION };
+    return { type: types.DEMO_SELECT };
   }
 }
 

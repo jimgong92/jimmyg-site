@@ -1,4 +1,4 @@
-import { MOVE_UP, MOVE_DOWN, MOVE_LEFT, MOVE_RIGHT, MAKE_SELECTION } from '../constants/DemosMenu';
+import { DEMO_MOVE_UP, DEMO_MOVE_DOWN, DEMO_MOVE_LEFT, DEMO_MOVE_RIGHT, DEMO_SELECT } from '../constants/DemosMenu';
 
 const initialState = {
   rowPosition: 0,
@@ -15,7 +15,7 @@ const MAX_MENU_INDEX = initialState.items.length - 1;
 
 export default function demosMenu(state = initialState, action) {
   switch (action.type) {
-    case MOVE_UP:
+    case DEMO_MOVE_UP:
       if (state.rowPosition > 0){
         state.rowPosition--;
       }
@@ -24,7 +24,7 @@ export default function demosMenu(state = initialState, action) {
         colPosition: state.colPosition,
         items: state.items
       };
-    case MOVE_DOWN:
+    case DEMO_MOVE_DOWN:
       if (state.rowPosition < MAX_MENU_INDEX){
         state.rowPosition++;
       }
@@ -33,19 +33,19 @@ export default function demosMenu(state = initialState, action) {
         colPosition: state.colPosition,
         items: state.items
       };
-    case MOVE_LEFT:
+    case DEMO_MOVE_LEFT:
       return {
         rowPosition: state.rowPosition,
         colPosition: state.colPosition === 1 ? 0 : state.colPosition,
         items: state.items
       };
-    case MOVE_RIGHT:
+    case DEMO_MOVE_RIGHT:
       return {
         rowPosition: state.rowPosition,
         colPosition: state.colPosition === 0 ? 1 : state.colPosition,
         items: state.items
       };
-    case MAKE_SELECTION:
+    case DEMO_SELECT:
       const target = state.colPosition === 0 ? 'href' : 'src';
       window.open(state.items[state.rowPosition][target]);
       return {

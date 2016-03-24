@@ -2,13 +2,13 @@ import types from '../constants/ConnectMenu';
 
 const actions = {
   moveLeft: () => {
-    return { type: types.MOVE_LEFT };
+    return { type: types.CONNECT_MOVE_LEFT };
   },
   moveRight: () => {
-    return { type: types.MOVE_RIGHT };
+    return { type: types.CONNECT_MOVE_RIGHT };
   },
   selectConnection: () => {
-    return { type: types.SELECT_CONNECTION };
+    return { type: types.CONNECT_SELECT };
   }
 }
 
