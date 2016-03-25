@@ -18,16 +18,16 @@ class DemoEntry extends Component {
       'active-icon': srcActive
     })
     return (
-      <div className='demo-menu-entry'>
+      <li className="demo menu-item">
         <a target="_blank" href={ href }>
           <div className={ hrefCX }>{ projectName }</div>
         </a>
         <div className={ srcCX }>
           <a target="_blank" href={ src }>
-            <i className={ `fa fa-github-square fa-5x` } />
+            <i className={ 'fa fa-github-square fa-5x icon' } />
           </a>
         </div>
-      </div>
+      </li>
     );
   }
 }

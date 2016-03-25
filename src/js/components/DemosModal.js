@@ -57,9 +57,9 @@ class DemosModal extends Component {
           Demos
         </span>
         <div className="modal-content center">
-          <div className="demos-menu">
+          <ul className="menu">
             { demoList }
-          </div>
+          </ul>
         </div>
       </div>
     );

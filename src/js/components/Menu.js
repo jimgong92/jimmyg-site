@@ -46,7 +46,7 @@ class Menu extends Component {
               />;
     });
     return (
-      <ul className="menu">
+      <ul className="home menu">
         { itemList }
       </ul>
     );
