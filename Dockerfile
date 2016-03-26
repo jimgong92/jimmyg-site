@@ -1,4 +1,4 @@
-# jimgong92/jimmyg-site:0.1.1
+# jimgong92/jimmyg-site:0.1.2
 
 # Pull base image
 FROM node:5.1.1
