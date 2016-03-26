@@ -24,13 +24,7 @@ class App extends Component {
     }
   }
   render() {
-    const { 
-      actions,
-      connectMenu,
-      demosMenu,
-      homeMenu,
-      name
-    } = this.props;
+    const { actions, connectMenu, demosMenu, homeMenu, name } = this.props;
 
     return (
       <div>
