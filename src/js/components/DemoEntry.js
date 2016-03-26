@@ -13,10 +13,11 @@ class DemoEntry extends Component {
       'active-icon': hrefActive,
     });
     const srcCX = cx({
+      'github': true,
       'icon-container': true,
       'inactive-icon': !srcActive,
       'active-icon': srcActive
-    })
+    });
     return (
       <li className="demo menu-item">
         <a target="_blank" href={ href }>
@@ -24,7 +25,7 @@ class DemoEntry extends Component {
         </a>
         <div className={ srcCX }>
           <a target="_blank" href={ src }>
-            <i className={ 'fa fa-github-square fa-5x icon' } />
+            <i className={ 'fa fa-github-square fa-4x icon' } />
           </a>
         </div>
       </li>
